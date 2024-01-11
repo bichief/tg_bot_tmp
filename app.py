@@ -2,16 +2,16 @@ import os
 
 import django
 
-from utils.set_bot_commands import set_default_commands
+from bot.utils.set_bot_commands import set_default_commands
 
 
 async def on_startup(dp):
-    import filters
-    import middlewares
+    from bot import filters
+    from bot import middlewares
     filters.setup(dp)
     middlewares.setup(dp)
 
-    from utils.notify_admins import on_startup_notify
+    from bot.utils.notify_admins import on_startup_notify
 
     await on_startup_notify(dp)
     await set_default_commands(dp)
@@ -29,6 +29,6 @@ def setup_django():
 if __name__ == '__main__':
     setup_django()
     from aiogram import executor
-    from handlers import dp
+    from bot.handlers import dp
 
-    executor.start_polling(dp, on_startup=on_startup)
+    executor.start_polling(dp, on_startup=on_startup, skip_updates=True)

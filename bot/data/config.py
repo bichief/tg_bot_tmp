@@ -9,13 +9,10 @@ PGUSER = str(os.getenv("POSTGRES_USER"))
 PGPASSWORD = str(os.getenv("POSTGRES_PASSWORD"))
 DATABASE = str(os.getenv("DB_NAME"))
 
-
-
-admins = [
-    417804053
+admins = [  # В списке указываем Telegram ID администраторов бота
+    1955750981
 ]
 
 ip = os.getenv("ip")
-
 
 POSTGRES_URL = f"postgresql://{PGUSER}:{PGPASSWORD}@{ip}/{DATABASE}"

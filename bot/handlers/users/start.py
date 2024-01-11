@@ -5,5 +5,5 @@ from loader import dp
 
 
 @dp.message_handler(CommandStart())
-async def bot_start_no_state(message: types.Message):
+async def start_cmd(message: types.Message):
     await message.answer('Привет!')
