@@ -2,7 +2,7 @@ import os
 
 import django
 
-from bot.utils.set_bot_commands import set_default_commands
+
 
 
 async def on_startup(dp):
@@ -10,7 +10,7 @@ async def on_startup(dp):
     from bot import middlewares
     filters.setup(dp)
     middlewares.setup(dp)
-
+    from bot.utils.set_bot_commands import set_default_commands
     from bot.utils.notify_admins import on_startup_notify
 
     await on_startup_notify(dp)
