@@ -16,3 +16,24 @@ class CreatedModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+class Users(CreatedModel):
+    telegram_id = models.BigIntegerField(
+        verbose_name='Telegram ID',
+        help_text='Telegram ID'
+    )
+
+    name = models.CharField(
+        max_length=5000,
+        null=True,
+        verbose_name='Имя',
+        help_text='Имя'
+    )
+
+    username = models.CharField(
+        max_length=5000,
+        null=True,
+        verbose_name='Юзернейм',
+        help_text='Юзернейм'
+    )
